@@ -3,6 +3,8 @@ import { StyleSheet, LogBox } from 'react-native';
 import Screen from '../layout/screen';
 import initialModules from '../../data/modules.js';
 import ModuleList from '../entity/modules/ModuleList.js';
+import { ButtonTray, Button } from '../UI/Button.js';
+import Icons from '../UI/Icons.js';
 
 export const ModuleListScreen = ({navigation}) => {
 
@@ -21,21 +23,29 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
   const onDelete =(module) => {
     handleDelete(module);
     navigation.goBack();
+  };
+
+  const onAdd =(module) => {
+    handleAdd(module);
+    navigation.goBack();
   }
 
+  const handleAdd = (module) => setModules( [...modules, module]);
 
-  const handleSelect = (module) => navigation.navigate('ModuleViewScreen', { module, onDelete } );
+  const goToViewScreen = (module) => navigation.navigate('ModuleViewScreen', { module, onDelete } );
+  const goToAddScreen = () => navigation.navigate('ModuleAddScreen', {onAdd});
 
   // View ------------------------------
   return (
     <Screen>
-      <ModuleList modules={modules} onSelect={handleSelect}/>
+      <ButtonTray>
+        <Button label="Add" icon={<Icons.Add />} onClick={goToAddScreen} />
+      </ButtonTray>
+      <ModuleList modules={modules} onSelect={goToViewScreen}/>
     </Screen>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {},
-});
+const styles = StyleSheet.create({});
 
 export default ModuleListScreen;
