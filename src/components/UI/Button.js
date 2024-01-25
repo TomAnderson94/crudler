@@ -10,7 +10,7 @@ export const Button = ({label, icon, onClick, styleLabel, styleButton}) => {
             {
                 icon ? icon : null
             }
-            <Text style={[StyleSheet.label,styleLabel]}>{label}</Text>
+            <Text style={[styles.label, styleLabel]}>{label}</Text>
         </Pressable>
     );
 };
@@ -31,7 +31,8 @@ export const ButtonTray = ({children}) => {
 const styles = StyleSheet.create({
     buttonTray: {
         flexDirection: 'row',
-        gap: 15
+        gap: 15,
+        justifyContent: 'space-around',
     },
     button: {
         minHeight: 50,
@@ -41,10 +42,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 1,
-        flex: 1,
+        padding: 2,
         flexDirection: 'row',
         gap: 5,
+        width: '40%',
+        marginLeft: 5,
+        marginRight: 5,
     },
     label: {
         fontSize: 16,

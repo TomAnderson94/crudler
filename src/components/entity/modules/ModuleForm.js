@@ -11,6 +11,7 @@ const defaultModule = {
     ModuleLevel: null,
     ModuleLeaderID: null,
     ModuleLeaderName: null,
+    ModuleAssignments: null,
     ModuleImage: null,
   };
 
@@ -76,6 +77,12 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
             label="Module Leader"
             value ={module.ModuleLeaderName}
             onChange={(value) => handleChange('ModuleLeaderName', value)}
+        />
+
+        <Form.InputText 
+            label="Module Assignments(Grade)"
+            value ={module.ModuleAssignments}
+            onChange={(value) => handleChange('ModuleAssignments', value)}
         />
 
         <Form.InputText 

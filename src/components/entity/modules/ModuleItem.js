@@ -8,23 +8,33 @@ const ModuleItem = ({ module, onSelect }) => {
 
   // View ------------------------------
     return (
-        <Pressable onPress={() => onSelect(module)}>
+        <Pressable onPress={() => onSelect(module)} style={{width: '100%' }}>
             <View style={styles.item}>
                 <Text style={styles.text}> 
                     {module.ModuleCode} {module.ModuleName}
                 </Text>
+                <Text style={styles.dimText}> (Click for details) </Text>
+
             </View>
         </Pressable>
     );
 };
     const styles = StyleSheet.create({
         item: {
-            paddingVertical: 15,
-            borderBottomWidth: 1,
-            borderColor: 'lightgray',
+            paddingVertical: 10,
+            borderBottomWidth: 2,
+            borderColor: '#003366',
+            width: '100%',
+            alignItems: 'center',
+
+            //justifyContent: 'space-between',
         },
         text: {
             fontSize: 16,
+        },
+        dimText: {
+            color: 'grey',
+            fontSize: 10,
         },
     });
 
