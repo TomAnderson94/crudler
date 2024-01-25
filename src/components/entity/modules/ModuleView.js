@@ -4,7 +4,7 @@ import { Button, ButtonTray } from '../../UI/Button';
 import Icons from '../../UI/Icons';
 
 
-const ModuleView = ({ module, onDelete }) => {
+const ModuleView = ({ module, onDelete, onModify }) => {
   // Initialisation ------------------------------
   // State ------------------------------
   // Handlers ------------------------------
@@ -36,13 +36,19 @@ const ModuleView = ({ module, onDelete }) => {
         </View>
 
         <ButtonTray>
-          <Button icon={<Icons.Edit />} label="Modify" />
+          <Button 
+          icon={<Icons.Edit />} 
+          label="Modify" 
+          onClick={onModify}
+          styleButton={{ backgroundColor: '#90EE90', padding: 5 }} 
+          styleLabel={{ color:'#006400'}}
+          />
           <Button 
           icon={<Icons.Delete />}
           label="Delete" 
           onClick={requestDelete}
-          styleButton={{ backgroundColor:'mistyrose'}} 
-          styleLabel={{ color:'red'}}
+          styleButton={{ backgroundColor:'#FF7F7F', padding: 5 }} 
+          styleLabel={{ color:'#8B0000'}}
           />
           </ButtonTray>
       </View>
@@ -60,10 +66,10 @@ const ModuleView = ({ module, onDelete }) => {
             gap: 5,
           },
           text: {
-            fontSize: 16,
+            fontSize: 20,
           },
           boldText: {
-            fontSize: 16,
+            fontSize: 22,
             fontWeight: 'bold',
           },
           dimText: {

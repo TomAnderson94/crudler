@@ -6,7 +6,7 @@ export const Button = ({label, icon, onClick, styleLabel, styleButton}) => {
     // Handlers --------------------------------------
     // View ------------------------------------------
     return (
-        <Pressable onPress={onClick} style={[styles.button,styleButton]}>
+        <Pressable onPress={onClick} style={[styles.button, styleButton]}>
             {
                 icon ? icon : null
             }
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 3,
+        padding: 1,
         flex: 1,
         flexDirection: 'row',
         gap: 5,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, LogBox } from 'react-native';
+import { StyleSheet, LogBox, Navigation } from 'react-native';
 import Screen from '../layout/screen';
 import initialModules from '../../data/modules.js';
 import ModuleList from '../entity/modules/ModuleList.js';
@@ -30,16 +30,24 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
     navigation.goBack();
   }
 
+  const onModify =(module) => {
+    handleModify(module);
+    navigation.navigate("ModuleListScreen");
+  };
   const handleAdd = (module) => setModules( [...modules, module]);
 
-  const goToViewScreen = (module) => navigation.navigate('ModuleViewScreen', { module, onDelete } );
+  const handleModify = (updatedModule) => setModules(
+    modules.map((module) => (module.ModuleID === updatedModule.ModuleID) ? updatedModule : module)
+  );
+
+  const goToViewScreen = (module) => navigation.navigate('ModuleViewScreen', { module, onDelete, onModify } );
   const goToAddScreen = () => navigation.navigate('ModuleAddScreen', {onAdd});
 
   // View ------------------------------
   return (
     <Screen>
       <ButtonTray>
-        <Button label="Add" icon={<Icons.Add />} onClick={goToAddScreen} />
+        <Button label="Add Module" icon={<Icons.Add />} onClick={goToAddScreen} />
       </ButtonTray>
       <ModuleList modules={modules} onSelect={goToViewScreen}/>
     </Screen>

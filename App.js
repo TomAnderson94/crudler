@@ -30,7 +30,7 @@ export const App = () => {
         <Stack.Screen
           name ="ModuleListScreen"
           component={ModuleListScreen}
-          options={{ title: "List Modules" }} 
+          options={{ title: "Module Crudler" }} 
         />
 
         <Stack.Screen
@@ -48,7 +48,7 @@ export const App = () => {
         <Stack.Screen
           name ="ModuleModifyScreen"
           component={ModuleModifyScreen}
-          options={{ title: "Modify Modules" }} 
+          options={{ title: "Modify Module" }} 
         />
         
 
