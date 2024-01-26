@@ -31,6 +31,7 @@ const ModuleItem = ({ module, onSelect }) => {
         },
         text: {
             fontSize: 16,
+            fontWeight: 'bold',
         },
         dimText: {
             color: 'grey',

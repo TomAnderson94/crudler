@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, View, Text } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import ModuleItem from './ModuleItem';
 
 

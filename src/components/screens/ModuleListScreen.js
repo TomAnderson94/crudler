@@ -31,7 +31,7 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
     navigation.goBack();
   }
 
-  const onModify =(module) => {
+  const onModify = (module) => {
     handleModify(module);
     navigation.navigate("ModuleListScreen");
   };
@@ -51,38 +51,45 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
     setIsSorted(!isSorted);
 };
 
-const handleVibrate = () => {
-  Vibration.vibrate(150000); // vibrate for 500 ms
+const handleVibrate = (duration) => {
+  Vibration.vibrate(duration); // vibrate for (x) ms
 }
 
-  const goToViewScreen = (module) => navigation.navigate('ModuleViewScreen', { module, onDelete, onModify } );
+  const goToViewScreen = (module) => navigation.navigate('ModuleViewScreen', {
+    module: module,
+    onDelete: onDelete,
+    onModify: onModify,
+    handleVibrate: handleVibrate
+  });
   const goToAddScreen = () => navigation.navigate('ModuleAddScreen', {onAdd});
 
   // View ------------------------------
   return (
     <Screen>
-      <ButtonTray>
-        <Button 
-        label="Add Module" 
-        icon={<Icons.Add />} 
-        onClick={goToAddScreen}
-        styleButton={{backgroundColor: '#003366'}}
-        styleLabel={{color: '#FFFFFF'}}
-         />
-        <Button 
-        label={isSorted ? "Standard View" : "Sort by Name"} 
-        icon={<Icons.Sort />} 
-        onClick={handleSortToggle}
-        styleButton={{backgroundColor: '#6A5ACD'}}
-        styleLabel={{color: '#FFFFFF'}}
-        />
-      </ButtonTray>
+      <View style={styles.buttonTrayContainer}>
+        <ButtonTray >
+          <Button 
+          label="Add Module" 
+          icon={<Icons.Add />} 
+          onClick={goToAddScreen}
+          styleButton={{backgroundColor: '#003366'}}
+          styleLabel={{color: '#FFFFFF'}}
+          />
+          <Button 
+          label={isSorted ? "Standard View" : "Sort by Name"} 
+          icon={<Icons.Sort />} 
+          onClick={handleSortToggle}
+          styleButton={{backgroundColor: '#6A5ACD'}}
+          styleLabel={{color: '#FFFFFF'}}
+          />
+        </ButtonTray>
+      </View>
       <ModuleList modules={modules} onSelect={goToViewScreen}/>
       <View style={styles.vibrationButtonContainer}>
         <Button 
         label="Caution: Slight jiggle!"
         icon={<Icons.CautionVibration />} 
-        onClick={handleVibrate} 
+        onClick={() => handleVibrate(10000)} 
         styleButton={{backgroundColor: '#FFA500', width: '100%'}}
         styleLabel={styles.boldText}
         />
@@ -102,7 +109,10 @@ const styles = StyleSheet.create({
   boldText: {
     fontSize: 16,
     fontWeight: 'bold',
-  }
+  },
+  buttonTrayContainer: {
+    paddingTop: 15,
+  },
 });
 
 export default ModuleListScreen;

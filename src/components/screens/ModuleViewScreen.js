@@ -4,7 +4,7 @@ import Screen from '../layout/screen';
 
 export const ModuleViewScreen = ({navigation, route}) => {
   // Initialisation ------------------------------
-  const { module, onDelete, onModify } = route.params;
+  const { module, onDelete, onModify, handleVibrate, handleLongVibrate } = route.params;
 
   // State ---------------------------------
 
@@ -18,7 +18,13 @@ console.log("checking checking: ", module);
   // View ----------------------------------
   return (
     <Screen>
-      <ModuleView module={module} onDelete={onDelete} onModify={goToModifyScreen}/>
+      <ModuleView 
+      module={module} 
+      onDelete={onDelete} 
+      onModify={goToModifyScreen}
+      handleVibrate={handleVibrate}
+      handleLongVibrate={handleLongVibrate}
+      />
     </Screen>
   );
 };
