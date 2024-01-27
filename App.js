@@ -4,9 +4,14 @@ import ModuleAddScreen from "./src/components/screens/ModuleAddScreen";
 import ModuleListScreen from "./src/components/screens/ModuleListScreen";
 import ModuleModifyScreen from "./src/components/screens/ModuleModifyScreen";
 import ModuleViewScreen from "./src/components/screens/ModuleViewScreen";
+import UserAddScreen from "./src/components/screens/UserAddScreen";
+import UserListScreen from "./src/components/screens/UserListScreen";
+import UserModifyScreen from "./src/components/screens/UserModifyScreen";
+import UserViewScreen from "./src/components/screens/UserViewScreen";
 
 
 const Stack = createNativeStackNavigator();
+const UserStack = createNativeStackNavigator();
 
 
 export const App = () => {
@@ -19,6 +24,8 @@ export const App = () => {
   // View ------------------------------
   return (
     <NavigationContainer>
+
+{/*
       <Stack.Navigator 
       initalRouteName ="ModuleListScreen"
       screenOptions={{
@@ -26,7 +33,6 @@ export const App = () => {
         headerTintColor: 'white',
       }}
       > 
-
         <Stack.Screen
           name ="ModuleListScreen"
           component={ModuleListScreen}
@@ -53,6 +59,41 @@ export const App = () => {
         
 
       </Stack.Navigator>
+      */}
+
+      <UserStack.Navigator
+      initialRouteName="UserListScreen"
+      screenOptions={{
+        headerStyle: { backgroundColor: 'black'},
+        headerTintColor: 'white',
+      }}
+      >
+        <UserStack.Screen
+          name="UserListScreen"
+          component={UserListScreen}
+          options={{ title: "User Crudler" }} 
+        />
+        <UserStack.Screen
+          name="UserAddScreen"
+          component={UserAddScreen}
+          options={{ title: "Add User" }} 
+        />
+        <UserStack.Screen
+          name="UserViewScreen"
+          component={UserViewScreen}
+          options={{ title: "View User" }} 
+        />
+        <UserStack.Screen
+          name="UserModifyScreen"
+          component={UserModifyScreen}
+          options={{ title: "Modify User" }} 
+        />
+
+      </UserStack.Navigator>
+
+
+
+
     </NavigationContainer>
   );
 };

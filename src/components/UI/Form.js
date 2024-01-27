@@ -56,7 +56,7 @@ const InputText = ({ label, value, onChange }) => {
     );
 };
 
-const InputSelect = ({ label, prompt, options, value, onChange }) => {
+const InputSelect = ({ label, prompt, options, value, onChange, style }) => {
     // Initialisation -----------------------------------------
     // State --------------------------------------------------
     // Handlers -----------------------------------------------
@@ -68,7 +68,7 @@ const InputSelect = ({ label, prompt, options, value, onChange }) => {
                 mode='dropdown'
                 selectedValue={value}
                 onValueChange={onChange}
-                style={styles.itemPickerStyling}
+                style={[styles.itemPickerStyling, style]}
             >
                 <Picker.Item 
                     value={null} 
