@@ -90,7 +90,7 @@ const handleVibrate = (duration) => {
       <UserList users={users} onSelect={goToViewScreen}/>
       <View style={styles.vibrationButtonContainer}>
         <Button 
-        label="Caution: Giant jiggle!"
+        label="Caution: Slight jiggle!"
         icon={<Icons.CautionVibration />} 
         onClick={() => handleVibrate(10000)} 
         styleButton={{backgroundColor: '#FFA500', width: '100%'}}

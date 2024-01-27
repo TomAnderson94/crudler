@@ -19,9 +19,9 @@ const UserView = ({ user, onDelete, onModify }) => {
     ]
   )
 
-  const handleLongVibrate = () => {
+  const handleGiantVibrate = () => {
     // The pattern is vibrate for 500ms and pause for 500ms, repeated 10 times
-    const pattern = Array(10).fill(500).flatMap(v => [v, v]);
+    const pattern = Array(10).fill([1000, 100]).flat();
     Vibration.vibrate(pattern);
   };
 
@@ -74,7 +74,7 @@ const UserView = ({ user, onDelete, onModify }) => {
               <Button 
               label="Caution: Giant jiggle!"
               icon={<Icons.CautionVibration />} 
-              onClick={() => handleLongVibrate()} 
+              onClick={() => handleGiantVibrate()} 
               styleButton={{backgroundColor: '#FFA500', width: '100%'}}
               styleLabel={styles.boldText}
               />
