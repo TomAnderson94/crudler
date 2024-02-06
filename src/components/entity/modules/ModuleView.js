@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Alert, Vibration } from 'react-native';
+import { StyleSheet, Text, View, Alert, Vibration, ScrollView } from 'react-native';
 import FullWidthImage from 'react-native-fullwidth-image';
 import { Button, ButtonTray } from '../../UI/Button';
 import Icons from '../../UI/Icons';
@@ -28,7 +28,7 @@ const ModuleView = ({ module, onDelete, onModify }) => {
 
   // View ------------------------------
     return (
-        <View style ={styles.container}>
+        <ScrollView contentContainerstyle ={styles.container}>
         <FullWidthImage source={{ uri: module.ModuleImage }} style={styles.image} /> 
 
         <View style={styles.infoTray}>
@@ -79,7 +79,7 @@ const ModuleView = ({ module, onDelete, onModify }) => {
               />
             </View>
             </View>
-          </View>
+          </ScrollView>
 
     );
 };
