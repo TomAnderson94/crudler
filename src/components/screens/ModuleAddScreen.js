@@ -2,13 +2,11 @@ import { StyleSheet } from 'react-native';
 import Screen from '../layout/screen';
 import ModuleForm from '../entity/modules/ModuleForm';
 
-
 export const ModuleAddScreen = ({ navigation, route }) => {
   // Initialisation ------------------------------
   const { onAdd } = route.params;
 
   // State ---------------------------------------
-
   // Handlers ------------------------------------
   const handleCancel = navigation.goBack;
 

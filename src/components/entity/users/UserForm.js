@@ -3,7 +3,7 @@ import Icons from '../../UI/Icons.js';
 import { useState } from 'react';
 import Form from '../../UI/Form.js';
 
-
+    // Default Data Model 
 const defaultUser = {
     UserID: null,
     UserFirstname:null,
@@ -14,7 +14,6 @@ const defaultUser = {
     CourseName: null,
     UserYear: null,
 };
-
 
 const UserForm = ({ originalUser, onSubmit, onCancel }) => {
     // Initialisation ----------------------------------------
@@ -27,29 +26,24 @@ const UserForm = ({ originalUser, onSubmit, onCancel }) => {
         { value: 'Admin', label: 'Admin' },
     ]; 
 
-
     // State -------------------------------------------------
-      const [user, setUser] = useState(originalUser || defaultUser);
+    const [user, setUser] = useState(originalUser || defaultUser);
 
     // Handlers  ---------------------------------------------
-
     const handleChange = (field, value) => setUser( {...user, [field]: value} );
     const handleSubmit = () => onSubmit(user);
 
-
     // View --------------------------------------------------
-
     const submitLabel = originalUser ? 'Modify' : 'Add';
     const submitIcon = originalUser ? <Icons.Edit /> : <Icons.Add />;
 
     return (
-    <Form
-    onSubmit={handleSubmit}
-    onCancel={onCancel}
-    submitLabel={submitLabel}
-    submitIcon={submitIcon}
-    >
-   
+        <Form
+            onSubmit={handleSubmit}
+            onCancel={onCancel}
+            submitLabel={submitLabel}
+            submitIcon={submitIcon}
+        >
 
         <Form.InputText 
             label="First Name"
@@ -70,7 +64,7 @@ const UserForm = ({ originalUser, onSubmit, onCancel }) => {
             value={user.UserType}
             onChange={(value) => handleChange('UserType', value)}
             style={styles.inputSelect}
-    /> 
+        /> 
 
         <Form.InputText 
             label="User Email"
@@ -96,12 +90,8 @@ const UserForm = ({ originalUser, onSubmit, onCancel }) => {
             onChange={(value) => handleChange('UserYear', value)}
         />
 
-    </Form>
-
-
+        </Form>
     );
-
-
 };
 
 const styles = StyleSheet.create({

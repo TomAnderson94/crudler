@@ -11,11 +11,11 @@ export const UserListScreen = ({navigation}) => {
   // Initialisation ------------------------------
 LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']); 
 
-  // State ------------------------------
+  // State ---------------------------------------
   const [ users, setUsers ] = useState(initialUsers);
   const [isSorted, setIsSorted] = useState(false);
 
-  // Handlers ------------------------------
+  // Handlers ------------------------------------
   const handleDelete = (user) => {
     setUsers(users.filter((item) => item.UserID !== user.UserID));
       console.log(`User ${user.UserID} deleted`);
@@ -29,12 +29,13 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
   const onAdd =(user) => {
     handleAdd(user);
     navigation.goBack();
-  }
+  };
 
   const onModify = (user) => {
     handleModify(user);
     navigation.navigate("UserListScreen");
   };
+
   const handleAdd = (user) => setUsers( [...users, user]);
 
   const handleModify = (updatedUser) => setUsers(
@@ -49,11 +50,11 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
         setUsers(sortedUsers);
     }
     setIsSorted(!isSorted);
-};
+  };
 
-const handleVibrate = (duration) => {
-  Vibration.vibrate(duration); // vibrate for (x) ms
-}
+  const handleVibrate = (duration) => {
+    Vibration.vibrate(duration); // vibrate for (x) ms
+  };
 
   const goToViewScreen = (user) => navigation.navigate('UserViewScreen', {
     user: user,
@@ -61,12 +62,11 @@ const handleVibrate = (duration) => {
     onModify: onModify,
     handleVibrate: handleVibrate
   }); 
-  console.log("USER: ", users);
-  console.log();
+  console.log("All Users: ", users);
 
   const goToAddScreen = () => navigation.navigate('UserAddScreen', {onAdd});
 
-  // View ------------------------------
+  // View ----------------------------------------
   return (
     <Screen>
       <View style={styles.buttonTrayContainer}>

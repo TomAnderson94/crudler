@@ -6,20 +6,17 @@ export const UserModifyScreen = ({ navigation, route }) => {
   // Initialisation ------------------------------
   const {user, onModify} = route.params;
 
-  // State ------------------------------
-
-  // Handlers ------------------------------
+  // State ---------------------------------------
+  // Handlers ------------------------------------
   const handleCancel = navigation.goBack;
 
-  // View ------------------------------
+  // View ----------------------------------------
   return (
     <Screen>
-
       <UserForm originalUser={user} onSubmit={onModify} onCancel={handleCancel}/>
-
     </Screen>
   );
-}
+};
 
 const styles = StyleSheet.create({});
 

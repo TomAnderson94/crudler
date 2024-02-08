@@ -11,11 +11,11 @@ export const ModuleListScreen = ({navigation}) => {
   // Initialisation ------------------------------
 LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']); 
 
-  // State ------------------------------
+  // State ---------------------------------------
   const [ modules, setModules ] = useState(initialModules);
   const [isSorted, setIsSorted] = useState(false);
 
-  // Handlers ------------------------------
+  // Handlers ------------------------------------
   const handleDelete = (module) => {
       setModules(modules.filter((item) => item.ModuleID !== module.ModuleID));
       console.log(`Module ${module.ModuleCode} deleted`);
@@ -35,6 +35,7 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
     handleModify(module);
     navigation.navigate("ModuleListScreen");
   };
+
   const handleAdd = (module) => setModules( [...modules, module]);
 
   const handleModify = (updatedModule) => setModules(
@@ -49,11 +50,11 @@ LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']
         setModules(sortedModules);
     }
     setIsSorted(!isSorted);
-};
+  };
 
-const handleVibrate = (duration) => {
-  Vibration.vibrate(duration); // vibrate for (x) ms
-}
+  const handleVibrate = (duration) => {
+    Vibration.vibrate(duration); // vibrate for (x) ms
+  };
 
   const goToViewScreen = (module) => navigation.navigate('ModuleViewScreen', {
     module: module,
@@ -61,20 +62,21 @@ const handleVibrate = (duration) => {
     onModify: onModify,
     handleVibrate: handleVibrate
   });
+
   const goToAddScreen = () => navigation.navigate('ModuleAddScreen', {onAdd});
 
-  // View ------------------------------
+  // View ----------------------------------------
   return (
     <Screen>
       <View style={styles.buttonTrayContainer}>
-        <ButtonTray >
+        <ButtonTray>
           <Button 
           label="Add Module" 
           icon={<Icons.Add />} 
           onClick={goToAddScreen}
           styleButton={{backgroundColor: '#003366'}}
           styleLabel={{color: '#FFFFFF'}}
-          />
+        />
           <Button 
           label={isSorted ? "Standard View" : "Sort by Name"} 
           icon={<Icons.Sort />} 

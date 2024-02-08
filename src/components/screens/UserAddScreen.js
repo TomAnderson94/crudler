@@ -8,7 +8,6 @@ export const UserAddScreen = ({ navigation, route }) => {
   const { onAdd } = route.params;
 
   // State ---------------------------------------
-
   // Handlers ------------------------------------
   const handleCancel = navigation.goBack;
 

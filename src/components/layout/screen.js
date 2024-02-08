@@ -3,12 +3,9 @@ import { StyleSheet, View } from 'react-native';
 
 export const Screen = ({ children }) => {
   // Initialisation ------------------------------
-
-  // State ------------------------------
-
-  // Handlers ------------------------------
-
-  // View ------------------------------
+  // State ---------------------------------------
+  // Handlers ------------------------------------
+  // View ----------------------------------------
   return (
     <View style={styles.screen}>
       {children}

@@ -12,30 +12,25 @@ const Form = ({children, onSubmit, onCancel, submitLabel, submitIcon}) => {
     // View ---------------------------------------------------
     return (
         <KeyboardAvoidingView style ={styles.formContainer}>
-
             <ScrollView contentContainerStyle={styles.formItems}>
                 {children}
             </ScrollView>
-
-
-            
-        <ButtonTray>
-            <Button 
-            label={submitLabel} 
-            icon={submitIcon} 
-            onClick={onSubmit} 
-            styleButton={{ backgroundColor: '#003366', padding: 5, width: '40%' }}
-            styleLabel={{ color: '#FFFFFF' }} 
-            />
-            <Button 
-            label="Cancel" 
-            icon={<Icons.Close />} 
-            onClick={onCancel} 
-            styleButton={{ backgroundColor: '#003366', padding: 5, width: '40%' }}
-            styleLabel={{ color: '#FFFFFF' }} 
-            />
-        </ButtonTray>
-
+            <ButtonTray>
+                <Button 
+                label={submitLabel} 
+                icon={submitIcon} 
+                onClick={onSubmit} 
+                styleButton={{ backgroundColor: '#003366', padding: 5, width: '40%' }}
+                styleLabel={{ color: '#FFFFFF' }} 
+                />
+                <Button 
+                label="Cancel" 
+                icon={<Icons.Close />} 
+                onClick={onCancel} 
+                styleButton={{ backgroundColor: '#003366', padding: 5, width: '40%' }}
+                styleLabel={{ color: '#FFFFFF' }} 
+                />
+            </ButtonTray>
         </KeyboardAvoidingView>
     );
 };
@@ -47,11 +42,11 @@ const InputText = ({ label, value, onChange }) => {
     // View ---------------------------------------------------
     return (
     <View style={styles.item}>
-    <Text style={styles.itemLabel}>{label}</Text>
-    <TextInput 
-    value ={value} 
-    onChangeText={onChange} 
-    style={styles.itemTextInput} />        
+        <Text style={styles.itemLabel}>{label}</Text>
+        <TextInput 
+        value ={value} 
+        onChangeText={onChange} 
+        style={styles.itemTextInput} />        
     </View>
     );
 };
@@ -90,9 +85,6 @@ const InputSelect = ({ label, prompt, options, value, onChange, style }) => {
     Form.InputText = InputText;
     Form.InputSelect = InputSelect;
 
-
-    // Styles
-
     const styles = StyleSheet.create({   
         formContainer: {
             gap: 10,
@@ -101,36 +93,25 @@ const InputSelect = ({ label, prompt, options, value, onChange, style }) => {
             gap: 5,
         },
         itemLabel: {
-        color: 'grey',
-        fontSize: 16, 
-        marginBottom: 5,
+            color: 'grey',
+            fontSize: 16, 
+            marginBottom: 5,
         },
         itemTextInput: {
-        height: 50,
-        paddingLeft: 10,
-        fontSize: 16,
-        backgroundColor: 'white',
-        borderRadius: 7,
-        borderWidth: 1,
-        borderColor: 'lightgray',
+            height: 50,
+            paddingLeft: 10,
+            fontSize: 16,
+            backgroundColor: 'white',
+            borderRadius: 7,
+            borderWidth: 1,
+            borderColor: 'lightgray',
         },
         itemPickerStyling: {
-        // height: 50,
-        backgroundColor: 'whitesmoke',
+            backgroundColor: 'whitesmoke',
         },
         itemPickerPromptStyling: {
-        color: 'red',
+            color: 'red',
         },
-    
     });
 
     export default Form;
-
-
-    
-
-
-
-
-
-

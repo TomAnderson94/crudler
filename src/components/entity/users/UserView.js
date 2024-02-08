@@ -6,8 +6,8 @@ import Icons from '../../UI/Icons';
 
 const UserView = ({ user, onDelete, onModify }) => {
   // Initialisation ------------------------------
-  // State ------------------------------
-  // Handlers ------------------------------
+  // State ---------------------------------------
+  // Handlers ------------------------------------
   const handleDelete = () => onDelete(user);
 
   const requestDelete = () => Alert.alert(
@@ -17,7 +17,7 @@ const UserView = ({ user, onDelete, onModify }) => {
       { text: 'No, Cancel' },
       { text: 'Yes, Delete', onPress: handleDelete }
     ]
-  )
+  );
 
   const handleGiantVibrate = () => {
     // The pattern is vibrate for 500ms and pause for 500ms, repeated 10 times
@@ -25,10 +25,9 @@ const UserView = ({ user, onDelete, onModify }) => {
     Vibration.vibrate(pattern);
   };
 
-
-  // View ------------------------------
+  // View --------------------------------------
     return (
-        <ScrollView contentContainerstyle ={styles.container}>
+      <ScrollView contentContainerstyle ={styles.container}>
         <FullWidthImage source={{ uri: user.UserImageURL }} style={styles.image} /> 
 
         <View style={styles.infoTray}>
@@ -37,7 +36,7 @@ const UserView = ({ user, onDelete, onModify }) => {
             <Text style={styles.boldText}> {user.UserFirstname} {user.UserLastname} </Text>
           </Text> 
           <Text style={styles.text}>Email: {user.UserEmail} </Text>
-          <Text style={styles.text} > 
+          <Text style={styles.text}> 
             {user.UserType} <Text style={styles.dimText}> {user.UserYear} </Text>
           </Text>
         </View>
@@ -63,10 +62,10 @@ const UserView = ({ user, onDelete, onModify }) => {
             <Text style={styles.boldText}>Courses: </Text>
             {user.CourseName ? (
               user.CourseName.split(',').map((courses, index) => (
-            <Text style={styles.text} key={index}>
-              - {courses.trim()}
-            </Text>
-            ))
+                <Text style={styles.text} key={index}>
+                  - {courses.trim()}
+                </Text>
+              ))
             ) : (
               <Text style={styles.text}>No Courses Listed</Text>
             )}
@@ -79,45 +78,40 @@ const UserView = ({ user, onDelete, onModify }) => {
               styleLabel={styles.boldText}
               />
             </View>
-            </View>
-          </ScrollView>
-
+          </View>
+      </ScrollView>
     );
 };
+
     const styles = StyleSheet.create({
         container: {
             gap: 15,
           },
-          image: {
+        image: {
             borderRadius: 3,
           },
-          infoTray: {
+        infoTray: {
             gap: 5,
           },
-          text: {
+        text: {
             fontSize: 20,
             paddingBottom: 3,
-
           },
-          boldText: {
+        boldText: {
             fontSize: 24,
             fontWeight: 'bold',
             paddingBottom: 5,
-          },
-          dimText: {
+        },
+        dimText: {
             color: 'grey',
-          },
-          vibrationButtonContainer: {
+        },
+        vibrationButtonContainer: {
             marginTop: 10,
             width: '100%',
             paddingHorizontal: 40,
             alignItems: 'center',
             height: '20%',
-          }
-
-
+        }
     });
-
-
 
 export default UserView;

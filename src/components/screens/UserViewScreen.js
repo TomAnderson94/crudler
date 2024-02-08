@@ -6,16 +6,14 @@ export const UserViewScreen = ({navigation, route}) => {
   // Initialisation ------------------------------
   const { user, onDelete, onModify, handleVibrate, handleLongVibrate } = route.params;
 
-  // State ---------------------------------
-
-  // Handlers ------------------------------
-
+  // State ---------------------------------------
+  // Handlers ------------------------------------
   const goToModifyScreen = () => navigation.navigate('UserModifyScreen', {user, onModify});
 
 
 
 console.log("checking checking: ", user);
-  // View ----------------------------------
+  // View ----------------------------------------
   return (
     <Screen>
       <UserView 
@@ -29,8 +27,6 @@ console.log("checking checking: ", user);
   );
 };
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});
 
 export default UserViewScreen;

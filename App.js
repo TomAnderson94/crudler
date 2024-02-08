@@ -13,89 +13,86 @@ import UserModifyScreen from "./src/components/screens/UserModifyScreen";
 import UserViewScreen from "./src/components/screens/UserViewScreen";
 
 
-  // Initialisation ------------------------------
-
+// Initialisation ------------------------------
 const ModuleStack = createNativeStackNavigator();
 const UserStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-  // State ---------------------------------------
+// Stack Navigator for Modules
+function ModuleStackScreen() {
+  return (
+    <ModuleStack.Navigator 
+      initalRouteName ="ModuleListScreen"
+      screenOptions={{
+        headerStyle: { backgroundColor: 'black'},
+        headerTintColor: 'white',
+    }}
+    > 
+      <ModuleStack.Screen
+        name ="ModuleListScreen"
+        component={ModuleListScreen}
+        options={{ title: "Module Crudler" }} 
+      />
 
-  // Handlers ------------------------------------
+      <ModuleStack.Screen
+        name ="ModuleAddScreen"
+        component={ModuleAddScreen}
+        options={{ title: "Add Module" }} 
+      />
 
-  // Stack Navigator for Modules
-  function ModuleStackScreen() {
-    return (
-      <ModuleStack.Navigator 
-        initalRouteName ="ModuleListScreen"
-        screenOptions={{
-          headerStyle: { backgroundColor: 'black'},
-          headerTintColor: 'white',
-      }}
-      > 
-        <ModuleStack.Screen
-          name ="ModuleListScreen"
-          component={ModuleListScreen}
-          options={{ title: "Module Crudler" }} 
-        />
+      <ModuleStack.Screen
+        name ="ModuleViewScreen"
+        component={ModuleViewScreen}
+        options={{ title: "View Modules" }} 
+      />
 
-        <ModuleStack.Screen
-          name ="ModuleAddScreen"
-          component={ModuleAddScreen}
-          options={{ title: "Add Module" }} 
-        />
+      <ModuleStack.Screen
+        name ="ModuleModifyScreen"
+        component={ModuleModifyScreen}
+        options={{ title: "Modify Module" }} 
+      />
+      
+    </ModuleStack.Navigator>
+  );
+};
 
-        <ModuleStack.Screen
-          name ="ModuleViewScreen"
-          component={ModuleViewScreen}
-          options={{ title: "View Modules" }} 
-        />
+// Stack Navigator for Users
+function UserStackScreen() {
+  return (
+    <UserStack.Navigator
+      initialRouteName="UserListScreen"
+      screenOptions={{
+        headerStyle: { backgroundColor: 'black'},
+        headerTintColor: 'white',
+    }}
+    >
+      <UserStack.Screen
+        name="UserListScreen"
+        component={UserListScreen}
+        options={{ title: "User Crudler" }} 
+      />
 
-        <ModuleStack.Screen
-          name ="ModuleModifyScreen"
-          component={ModuleModifyScreen}
-          options={{ title: "Modify Module" }} 
-        />
-        
-      </ModuleStack.Navigator>
-    );
-  }
+      <UserStack.Screen
+        name="UserAddScreen"
+        component={UserAddScreen}
+        options={{ title: "Add User" }} 
+      />
 
-  // Stack Navigator for Users
-  function UserStackScreen() {
-    return (
-      <UserStack.Navigator
-        initialRouteName="UserListScreen"
-        screenOptions={{
-          headerStyle: { backgroundColor: 'black'},
-          headerTintColor: 'white',
-      }}
-      >
-        <UserStack.Screen
-          name="UserListScreen"
-          component={UserListScreen}
-          options={{ title: "User Crudler" }} 
-        />
-        <UserStack.Screen
-          name="UserAddScreen"
-          component={UserAddScreen}
-          options={{ title: "Add User" }} 
-        />
-        <UserStack.Screen
-          name="UserViewScreen"
-          component={UserViewScreen}
-          options={{ title: "View User" }} 
-        />
-        <UserStack.Screen
-          name="UserModifyScreen"
-          component={UserModifyScreen}
-          options={{ title: "Modify User" }} 
-        />
+      <UserStack.Screen
+        name="UserViewScreen"
+        component={UserViewScreen}
+        options={{ title: "View User" }} 
+      />
 
-      </UserStack.Navigator>
-    );
-  }
+      <UserStack.Screen
+        name="UserModifyScreen"
+        component={UserModifyScreen}
+        options={{ title: "Modify User" }} 
+      />
 
+    </UserStack.Navigator>
+  );
+};
 
 // View ----------------------------------------
 

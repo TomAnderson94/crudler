@@ -4,13 +4,8 @@ import UserItem from './UserItem';
 
 const UserList = ({ users, onSelect }) => {
   // Initialisation ------------------------------
-  
   // State ---------------------------------------
-
-
   // Handlers ------------------------------------
-
-
   // View ----------------------------------------
     return (
         <ScrollView style={styles.container}>
@@ -32,7 +27,5 @@ const styles = StyleSheet.create({
         width: '100%',
     },
 });
-
-
 
 export default UserList;
