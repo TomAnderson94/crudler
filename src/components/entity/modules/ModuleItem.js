@@ -2,11 +2,11 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 const ModuleItem = ({ module, onSelect }) => {
   // Initialisation ------------------------------
-  // State ------------------------------
-  // Handlers ------------------------------
+  // State ---------------------------------------
+  // Handlers ------------------------------------
 
 
-  // View ------------------------------
+  // View ----------------------------------------
     return (
         <Pressable onPress={() => onSelect(module)} style={{width: '100%' }}>
             <View style={styles.item}>
@@ -14,7 +14,6 @@ const ModuleItem = ({ module, onSelect }) => {
                     {module.ModuleCode} {module.ModuleName}
                 </Text>
                 <Text style={styles.dimText}> (Click for details) </Text>
-
             </View>
         </Pressable>
     );
@@ -26,8 +25,6 @@ const ModuleItem = ({ module, onSelect }) => {
             borderColor: '#003366',
             width: '100%',
             alignItems: 'center',
-
-            //justifyContent: 'space-between',
         },
         text: {
             fontSize: 16,
@@ -38,7 +35,5 @@ const ModuleItem = ({ module, onSelect }) => {
             fontSize: 10,
         },
     });
-
-
 
 export default ModuleItem;

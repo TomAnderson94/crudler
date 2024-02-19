@@ -10,9 +10,7 @@ export const ModuleViewScreen = ({navigation, route}) => {
   // Handlers ------------------------------------
   const goToModifyScreen = () => navigation.navigate('ModuleModifyScreen', {module, onModify});
 
-
-
-console.log("checking checking: ", module);
+  console.log("checking checking: ", module);
   // View ----------------------------------------
   return (
     <Screen>

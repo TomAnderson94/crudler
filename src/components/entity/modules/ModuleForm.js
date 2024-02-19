@@ -34,13 +34,11 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
       const [module, setModule] = useState(originalModule || defaultModule);
 
     // Handlers  ---------------------------------------------
-
     const handleChange = (field, value) => setModule( {...module, [field]: value} );
     const handleSubmit = () => onSubmit(module);
 
 
     // View --------------------------------------------------
-
     const submitLabel = originalModule ? 'Modify' : 'Add';
     const submitIcon = originalModule ? <Icons.Edit /> : <Icons.Add />;
 
@@ -52,7 +50,6 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
     submitIcon={submitIcon}
     >
    
-
         <Form.InputText 
             label="Module Code"
             value ={module.ModuleCode}
@@ -93,10 +90,7 @@ const ModuleForm = ({ originalModule, onSubmit, onCancel }) => {
 
     </Form>
 
-
     );
-
-
 };
 
 const styles = StyleSheet.create({});

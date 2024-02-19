@@ -9,7 +9,7 @@ import Icons from '../UI/Icons.js';
 export const UserListScreen = ({navigation}) => {
 
   // Initialisation ------------------------------
-LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']); 
+  LogBox.ignoreLogs(['Non-serializable values were found in the navigation state']); 
 
   // State ---------------------------------------
   const [ users, setUsers ] = useState(initialUsers);

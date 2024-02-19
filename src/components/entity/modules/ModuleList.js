@@ -5,10 +5,7 @@ import ModuleItem from './ModuleItem';
 const ModuleList = ({ modules, onSelect }) => {
   // Initialisation ------------------------------
   // State ---------------------------------------
-
-
   // Handlers ------------------------------------
-
 
   // View ----------------------------------------
     return (
@@ -32,13 +29,4 @@ const styles = StyleSheet.create({
     },
 });
 
-
-
 export default ModuleList;
-
-
-
-
-
-
-

@@ -6,8 +6,8 @@ import Icons from '../../UI/Icons';
 
 const ModuleView = ({ module, onDelete, onModify }) => {
   // Initialisation ------------------------------
-  // State ------------------------------
-  // Handlers ------------------------------
+  // State ---------------------------------------
+  // Handlers ------------------------------------
   const handleDelete = () => onDelete(module);
 
   const requestDelete = () => Alert.alert(
@@ -26,9 +26,9 @@ const ModuleView = ({ module, onDelete, onModify }) => {
   };
 
 
-  // View ------------------------------
+  // View ----------------------------------------
     return (
-        <ScrollView contentContainerstyle ={styles.container}>
+      <ScrollView contentContainerstyle ={styles.container}>
         <FullWidthImage source={{ uri: module.ModuleImage }} style={styles.image} /> 
 
         <View style={styles.infoTray}>
@@ -78,8 +78,8 @@ const ModuleView = ({ module, onDelete, onModify }) => {
               styleLabel={styles.boldText}
               />
             </View>
-            </View>
-          </ScrollView>
+          </View>
+        </ScrollView>
 
     );
 };
@@ -110,10 +110,6 @@ const ModuleView = ({ module, onDelete, onModify }) => {
             alignItems: 'center',
             height: '20%',
           }
-
-
     });
-
-
 
 export default ModuleView;
